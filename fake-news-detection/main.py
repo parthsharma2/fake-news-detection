@@ -11,17 +11,23 @@ def calculate(url):
     article.download()
     article.parse()
 
-    source_article = article.text
+    source_article_body = article.text
+    source_article_headline = article.title
 
-    kw = keywords.extract(source_article, limit=5)
+    kw = keywords.extract(source_article_body, limit=5)
     news_articles = news.get_news(' '.join(kw))['articles']
     length = 5 if len(news_articles) > 5 else len(news_articles)
 
-    s = []
+    body = []
+    headlines = []
     for i in range(length):
         article = Article(news_articles[i]['url'])
         article.download()
         article.parse()
-        s.append(article.text)
+        body.append(article.text)
+        headlines.append(article.title)
 
-    return text_similarity.check(s, source_article)
+    body_sim = text_similarity.check(body, source_article_body)
+    headline_sim = text_similarity.check(headlines, source_article_headline)
+
+    return (body_sim + headline_sim) / 2 * 100
