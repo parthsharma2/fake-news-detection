@@ -24,13 +24,21 @@ Fake News Detection
                     </div>
                     <div class="col-md-12">
                         <br/>
-                          <button class="btn btn-success btn-lg" form="main_form">Extract</button>
+                          <button class="btn btn-success btn-lg" form="main_form" onclick="loading()">Extract</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
+    <div id="loading" style="width: 35px; height: 35px; margin: auto; display: none; background: url(../static/loader.gif) no-repeat; cursor: wait; margin-top: 25px">
+    </div>
 </div>
+
+<script type="text/javascript">
+  function loading(){
+    document.getElementById('loading').style.display = "block";
+  }
+</script>
 
 </section>
 {% endblock %}

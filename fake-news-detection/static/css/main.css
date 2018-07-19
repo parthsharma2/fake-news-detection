@@ -13,3 +13,13 @@
   line-height: 60px;
   background-color: #f5f5f5;
 }
+
+#loading {
+  width: 35px;
+  height: 35px;
+  margin: auto;
+  display: none;
+  background: url(../static/loader.gif) no-repeat;
+  cursor: wait;
+  margin-top: 25px
+}
