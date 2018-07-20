@@ -6,7 +6,20 @@ import text_similarity
 
 
 def calculate(url):
-    """Calculate."""
+    """
+    Calculates text similarity.
+
+    Parameters
+    ----------
+    url: string
+        The url to check for similarity
+
+    Returns
+    ----------
+    float
+        Percentage of similarity
+
+    """
     article = Article(url)
     article.download()
     article.parse()

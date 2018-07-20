@@ -7,7 +7,20 @@ from nltk.stem.porter import PorterStemmer
 
 
 def tokenize(text):
-    """Tokenizes a string."""
+    """
+    Tokenizes a string.
+
+    Parameters
+    ----------
+    text: string
+        A string to be tokenized
+
+    Returns
+    ----------
+    list
+        A list of tokens
+
+    """
     return [w.lower() for w in word_tokenize(text)]
 
 
