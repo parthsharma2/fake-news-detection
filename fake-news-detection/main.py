@@ -40,7 +40,7 @@ def calculate(url):
         body.append(article.text)
         headlines.append(article.title)
 
-    body_sim = text_similarity.check(body, source_article_body)
-    headline_sim = text_similarity.check(headlines, source_article_headline)
+    body_sim = text_similarity.cosine_similarity(body, source_article_body)
+    headline_sim = text_similarity.cosine_similarity(headlines, source_article_headline)
 
     return (body_sim + headline_sim) / 2 * 100
