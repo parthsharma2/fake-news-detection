@@ -1,4 +1,5 @@
 from newspaper import Article
+from newsapi.newsapi_exception import NewsAPIException
 
 import keywords
 import news
@@ -28,7 +29,10 @@ def calculate(url):
     source_article_headline = article.title
 
     kw = keywords.extract(source_article_body, limit=5)
-    news_articles = news.get_news(' '.join(kw))['articles']
+    try:
+        news_articles = news.get_news(' '.join(kw))['articles']
+    except NewsAPIException as e:
+        return 0.0
     length = 5 if len(news_articles) > 5 else len(news_articles)
 
     body = []
