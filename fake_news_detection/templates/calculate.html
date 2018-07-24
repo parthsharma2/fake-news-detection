@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+Fake News Detection
+{% endblock %}
+
+{% block content %}
+<div class="container landing-page" style="position: relative; padding: 100px 15px; text-align: center;">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h3>Chance of it being Real: </h3>
+      <h2>{{ value }} %</h2>
+    </div>
+  </div>
+</div>
+{% endblock %}
