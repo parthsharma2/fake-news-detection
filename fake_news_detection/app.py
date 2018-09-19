@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request
 from logging import DEBUG
-import main
+import core
 
 
 app = Flask(__name__)
@@ -17,10 +17,10 @@ def index():
 def calculate():
     if request.method == 'POST':
         url = request.form['url']
-        return render_template('calculate.html', value=str(main.calculate(url)))
+        return render_template('calculate.html', value=str(core.calculate(url)))
     else:
         url = request.args.get('url')
-        return render_template('calculate.html', value=str(main.calculate(url)))
+        return render_template('calculate.html', value=str(core.calculate(url)))
 
 
 if __name__ == '__main__':
