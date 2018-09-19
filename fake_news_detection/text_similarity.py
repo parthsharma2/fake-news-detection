@@ -78,6 +78,6 @@ def cosine_similarity(docs, target):
 
     tf_idf = TfidfVectorizer().fit_transform(mod_docs)
 
-    result = [cosine(tf_idf[i].todense(), tf_idf[2].todense()) for i in range(len(mod_docs) - 1)]
+    result = [cosine(tf_idf[i].todense(), tf_idf[len(mod_docs) - 2].todense()) for i in range(len(mod_docs) - 1)]
 
-    return sum(result) / len(result)
+    return sum(result) / len(result) if len(result) != 0 else 0
